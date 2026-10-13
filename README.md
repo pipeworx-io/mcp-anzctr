@@ -5,7 +5,7 @@ full registered record for one trial by ACTRN. ANZCTR is the WHO
 primary registry for Australia and New Zealand, and many of its trials are not
 on ClinicalTrials.gov.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1763+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1784+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
 
 ## Tools
 
@@ -18,7 +18,17 @@ Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents 
 
 Use alongside `clinicaltrials` (US registry) and `isrctn` (UK/international).
 
-## Search is not shipped yet
+## Searching ANZCTR: use `ictrp_search`
+
+To find ANZCTR trials, call `ictrp_search({query, registry: "ANZCTR"})` from
+the `who-ictrp` pack. WHO ICTRP indexes every ANZCTR record and is not behind
+ANZCTR's Cloudflare challenge. Verified through the live gateway on 2026-10-09:
+`{query: "psilocybin", registry: "ANZCTR"}` returned ACTRN rows such as
+`ACTRN12626001100381`, and `anzctr_trial` on that id returned the full record.
+ICTRP refreshes from the registries weekly, so a trial registered in the last
+few days may only be reachable by ACTRN here.
+
+## Why there is no `anzctr_search`
 
 ANZCTR's search (`TrialSearch.aspx`) is an ASP.NET WebForms postback. A working
 implementation exists in commit `f1c44beb0` (`anzctr_search`: GET the form for
@@ -30,7 +40,9 @@ every call from the live gateway got a Cloudflare Managed Challenge (HTTP 403,
 "I'm Under Attack Mode - The University of Sydney") on `TrialSearch.aspx`, while
 the record page answered normally. A laptop is challenged on the search page too. The egress
 relay (`supabase/functions/egress-proxy`) does not carry cookies, which the
-postback needs. Fleet #2897 carries the follow-up.
+postback needs. Fleet #2897 closed on the `ictrp_search` route above; a
+direct `anzctr_search` is only worth reviving if ICTRP's weekly lag becomes the
+complaint.
 
 ## Auth
 
@@ -97,7 +109,7 @@ directly, instead of just this one's:
 }
 ```
 
-Both URLs reach the same gateway and the same 1763+ data sources. The
+Both URLs reach the same gateway and the same 1784+ data sources. The
 only difference is which pack's tools are listed **directly**; `ask_pipeworx`
 reaches all of them from either one.
 

@@ -843,7 +843,7 @@ const tools: McpToolExport['tools'] = [
   {
     name: 'anzctr_trial',
     description:
-      'Full ANZCTR record for one trial by its ACTRN (e.g. "ACTRN12626001215314" or the 14 digits alone): titles, recruitment status, phase, study design, health conditions and condition codes, intervention and comparator, primary/secondary outcomes, eligibility, target sample size, key dates, primary sponsor, funding sources, ethics committees and secondary IDs. Contact-person details are not returned.',
+      'Full ANZCTR record for one trial by its ACTRN (e.g. "ACTRN12626001215314" or the 14 digits alone): titles, recruitment status, phase, study design, health conditions and condition codes, intervention and comparator, primary/secondary outcomes, eligibility, target sample size, key dates, primary sponsor, funding sources, ethics committees and secondary IDs. Contact-person details are not returned. To FIND ANZCTR trials by keyword, condition or intervention, use ictrp_search with registry "ANZCTR" (the WHO ICTRP index of this registry), then pass a returned ACTRN here.',
     inputSchema: {
       type: 'object' as const,
       properties: {
