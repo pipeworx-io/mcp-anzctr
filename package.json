@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-anzctr",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ANZCTR — the Australian New Zealand Clinical Trials Registry (anzctr.org.au, run by the NHMRC Clinical Trials Centre, University of Sydney). A WHO primary registry: Australian and New Zealand trials register here, and many never appear on ClinicalTrials.gov.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-16e0d62da812eeb6e42e33a6f281624b502c44584563a762b2ff2229fc9bfdd9",
-    "sourceCommit": "3723e46c6d115bd4a1fd2175e6bf758555e7cb50"
+    "sourceHash": "v1-fd5f10e892d62d23af21f0e387837eb21960e776d218ae0232f6912cd5fc2612",
+    "sourceCommit": "351c40908821cfecc9bb2f5849d87bbfdbb26d75"
   }
 }
