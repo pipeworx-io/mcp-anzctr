@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/anzctr",
   "title": "Anzctr",
   "description": "ANZCTR — the Australian New Zealand Clinical Trials Registry (anzctr.org.au, run by the NHMRC…",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "websiteUrl": "https://pipeworx.io/packs/anzctr",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-anzctr",
